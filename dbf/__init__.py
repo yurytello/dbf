@@ -4177,7 +4177,7 @@ def retrieve_date(bytes, fielddef, *ignore):
     Returns the ascii coded date as fielddef[CLASS] or fielddef[EMPTY]
     """
     text = to_bytes(bytes)
-    if text in (b'        ', b'00000000'):
+    if text in (b'        ', b'00000000', b'\x00\x00\x00\x00\x00\x00\x00\x00'):
         cls = fielddef[EMPTY]
         if cls is NoneType:
             return None
